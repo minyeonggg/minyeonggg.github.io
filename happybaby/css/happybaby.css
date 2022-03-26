@@ -1,0 +1,257 @@
+:root {
+    --mc : #cd056d;
+    --fc : #514d4d;
+    --lc : #ffffff;
+}
+
+*::selection {background: var(--mc);color: var(--lc);}
+.button {display: block;border-radius:3px;width: 180px;line-height: 50px;font-size:14px;font-weight: 500;transition: 0.3s;}
+
+html::-webkit-scrollbar {width: 5px;}
+html::-webkit-scrollbar-thumb {background: var(--fc);}
+html::-webkit-scrollbar-track {background: var(--lc);}
+body {color: var(--fc);}
+
+
+/* ----------------------- header ----------------------- */
+
+#header {position: fixed;top: 0;left: 0;width: 100%;transition: 0.4s;z-index: 999;}
+#header.on {background:  var(--lc);}
+/* 띄어쓰기 안하면 -- header에 on이 붙었을 때 -- */
+#header .container {position: relative;display: flex;justify-content: space-between;width: 1600px;margin: 0 auto;padding: 20px;}
+
+/* top_line --------------------------- */
+#header .top_line {position: absolute;top: 0;left: 0;display: flex;width: 100%;}
+#header .top_line div {flex:1;height: 5px;}
+#header .top_line div:nth-child(1) {background: #E97B0C;}
+#header .top_line div:nth-child(2) {background: #E6CB62;}
+#header .top_line div:nth-child(3) {background: #5E4F45;}
+#header .top_line div:nth-child(4) {background: #80C7E1;}
+
+#header h1 {transform: translateY(-5px);}
+#header h1 a {display: block;}
+#header h1 a img {height: 55px;}
+
+/* #header nav ul {display: flex;}
+#header nav ul li a {display: block;padding: 0 30px;}
+#header nav ul li:last-child a {padding-right: 0;} */
+
+/* menu 여는 버튼 ------------ */
+#header .menu_open_btn {position: absolute;top: 50%;right: 0;transform: translateY(-50%);width: 30px;height: 24px;z-index: 99;cursor: pointer;}
+#header .menu_open_btn span {position: absolute;width: 100%;height: 2px;background: #333;transition: 0.4s;}
+#header .menu_open_btn span:nth-child(1) {top: 0;}
+#header .menu_open_btn span:nth-child(2) {top: 50%;}
+#header .menu_open_btn span:nth-child(3) {top: 50%;}
+#header .menu_open_btn span:nth-child(4) {top: 100%;}
+
+/* 메뉴 버튼 클릭 효과 ----------- */
+#header .menu_open_btn.on span:nth-child(1) {opacity: 0;}
+#header .menu_open_btn.on span:nth-child(2) {transform: rotate(-45deg);}
+#header .menu_open_btn.on span:nth-child(3) {transform: rotate(45deg);}
+#header .menu_open_btn.on span:nth-child(4) {opacity: 0;}
+
+
+#header .gnb_wrap {position: fixed;top: 0;left: 0;display: flex;width: 100%;height: 100vh;background: #fcf7ef;opacity: 0;visibility: hidden;transform: 0.4s;}
+#header .gnb_wrap.on {opacity: 1;visibility: visible;}
+#header .gnb_wrap .gnb_bg {width: 25%;background: url(../img/allMenuBg.jpg) no-repeat center/cover;}
+#header .gnb_wrap nav {position: relative;display: flex;justify-content: center;align-items: center;width: 75%;}
+
+/* depth01 ---------- */
+#header .gnb_wrap nav .depth01 {display: flex;flex-wrap: wrap;}
+#header .gnb_wrap nav .depth01 > li {width: calc(100% / 3);padding: 80px 0;}
+#header .gnb_wrap nav .depth01 > li > a {display: block;margin-bottom: 30px;}
+#header .gnb_wrap nav .depth01 > li > a > em {position: relative;font-size: 35px;font-weight: 500;transition: 0.4s;}
+#header .gnb_wrap nav .depth01 > li > a > em::after {content: '';position: absolute;top: 0;left: 100%;display: block;width: 10px;height: 10px;background: var(--mc);border-radius: 50%;transform: scale(0);transition: 0.4s;}
+
+#header .gnb_wrap nav .depth01 > li:hover > a > em {color: var(--mc);}
+#header .gnb_wrap nav .depth01 > li:hover > a > em::after {transform: scale(1);}
+
+/* depth02 ---------- */
+#header .gnb_wrap nav .depth02 > li > a {display: block;padding: 8px 0;font-weight: 300;}
+#header .gnb_wrap nav .depth02 > li:hover > a {color: var(--mc);font-weight: 400;}
+
+/* ----------------------- main ----------------------- */
+#main_visual {position: relative;height: 100vh;background: #fcf7ef;}
+#main_visual::before {content: '';position: absolute;bottom: 30%;display: block;width: 100%;height: 1px;background: #dcd3c9;pointer-events: none;z-index: 1;}
+#main_visual::after {content: '';position: absolute;top: 50%;right: 50%;transform: translateY(-50%);display: block;width: 80vh;height: 80vh;border-radius: 50%;border: 1px solid #dcd3c9;pointer-events: none;}
+
+
+/* main_slider --------------------------- */
+#main_visual .main_slider {width: 60vh;height: 100vh;margin: 0 auto;}
+
+#main_visual .main_slider figure {height: 100vh;}
+#main_visual .main_slider .visual01 {background: url(../img/mv1.png)no-repeat center center/contain;}
+#main_visual .main_slider .visual02 {background: url(../img/mv2.png)no-repeat center center/contain;}
+#main_visual .main_slider .visual03 {background: url(../img/mv3.png)no-repeat center center/contain;}
+#main_visual .main_slider .visual04 {background: url(../img/mv4.png)no-repeat center center/contain;}
+
+
+/* slogan --------------------------- */
+#main_visual .slogan {position: absolute;top: 45%;left: 50%;transform: translate(-50%, -50%);width: 100%;text-align: center;pointer-events: none;}
+#main_visual .slogan h2 {position: relative;font-size: 200px;}
+#main_visual .slogan h2 span {margin: 0 150px;}
+#main_visual .slogan h2::before {content: '';position: absolute;top: 0;right: 310px;display: block;width: 43px;height: 43px;background: url(../img/mv_emblem.png) no-repeat center center/cover;animation: spin 7s infinite linear;}
+
+@keyframes spin {
+    100% {transform: rotate(360deg);}
+}
+#main_visual .slogan2 {position: absolute;bottom: 20%;left: 65%;font-size: 20px;font-weight: 700;line-height: 1.4em;}
+#main_visual .slogan2 strong {font-size: 20px;font-weight: 700;color: #514d4d;}
+#main_visual .slogan2 small {font-size: 20px;font-weight: 300;}
+
+#main_visual .slider_dots {position: absolute;bottom: 30%;left: 230px;z-index: 10;}
+#main_visual .slider_dots ul {display: flex;}
+#main_visual .slider_dots ul li {position: relative;;width: 100px;padding-bottom: 20px;font-size: 14px;transition: 0.3s;}
+#main_visual .slider_dots ul li.on {font-weight: 700;width: 150px;color: var(--mc);}
+
+#main_visual .slider_dots ul li::after {content: '';position: absolute;bottom: 0;display: block;width: 0%;height: 1px;background: var(--mc);}
+#main_visual .slider_dots ul li.on::after {width: 100%;transition: 2.9s linear;} 
+
+#main_visual .scroll {position: absolute;bottom: 20%;left: 230px;}
+#main_visual .scroll span {display: block;transform: translateX(-42%) rotate(-90deg);font-size: 15px;font-weight: 500;}
+#main_visual .scroll::before {content: '';position: absolute;top: 80px;left: 0;display: block;width: 18px;height: 24px;background: url(../img/icon_scroll.png);animation: scrollAni 1s infinite linear;}
+
+@keyframes scrollAni {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(10px);}
+}
+
+
+/* section01 ------------------------------------------------------------- */
+#section01 {padding: 80px 0 200px;background: linear-gradient(to bottom, #fcf7ef, transparent);}
+#section01 h2 {font-size: 40px;position: relative;font-weight: 700;text-align: center;}
+#section01 h2::before {content: '';position: absolute;top: -70px;left: 50%;transform: translateX(-50%);display: block;width: 98px;height: 23px;background: url(../img/main_tit_illust.png);}
+#section01 h2::after {content: '';display: block;width: 50px;height: 3px;margin: 50px auto 100px auto;background: var(--fc);}
+
+#section01 .container {display: flex;gap: 60px;width: 1400px;margin: 0 auto;}
+#section01 .container .s_itm {flex: 1;}
+
+#section01 .s_itm figure {position: relative;}
+#section01 .s_itm figure:before {content:'';position: absolute;bottom: 0;left: 50%;transform: translate(-50%, 50%);display:block;width: 100px;height: 100px;background-repeat:no-repeat;background-position: center;border-radius:61% 39% 59% 41% / 43% 42% 58% 57% }
+#section01 .s_itm01 figure::before {background-image: url(../img/icon_ms1-1.png), linear-gradient(to bottom,  var(--lc) 50%, transparent 50%);}
+#section01 .s_itm02 figure::before {background-image: url(../img/icon_ms1-2.png), linear-gradient(to bottom,  var(--lc) 50%, transparent 50%);}
+#section01 .s_itm03 figure::before {background-image: url(../img/icon_ms1-3.png), linear-gradient(to bottom,  var(--lc) 50%, transparent 50%);}
+
+#section01 .s_itm figure img {width: 100%;}
+
+#section01 .s_itm .txt_box {padding-top: 70px;text-align: center;}
+#section01 .s_itm .txt_box h3 {font-size: 20px;font-weight: 700;margin-bottom: 20px;}
+#section01 .s_itm .txt_box p {font-size: 16px;font-weight: 300;margin-bottom: 40px;line-height: 1.4;color: #777;}
+#section01 .s_itm .txt_box .button {border:1px solid var(--fc);margin: 0 auto;}
+#section01 .s_itm .txt_box .button:hover {background: #eeeeee;}
+
+
+/* section02 ----------------------------------------------------------------- */
+#section02 {display: flex;height: 100vh;color:  var(--lc);}
+/* vh = 뷰포트 높이 > 페이지에서 꽉차는 사이즈 - 100은 100% */
+#section02 div {flex: 1;}
+#section02 .left, #section02 .top, #section02 .bottom {position: relative;}
+#section02 .button {border: 1px solid  var(--lc);font-weight: 300;text-align: center;}
+#section02 .button:hover {background: rgba(255,255,255,0.2);}
+
+#section02 .left {background: url(../img/img_ms2-1.jpg) no-repeat center center/cover;}
+/* 반복 위치값/cover > 이미지가 들어간 공간을 꽉 채움 */
+#section02 .left .txt_box {position: absolute;bottom: 100px;left: 50%;transform: translateX(-50%);text-align: center;}
+#section02 .left .txt_box h3 {font-size: 35px;font-weight: 700;margin-bottom: 40px;}
+#section02 .left .txt_box .button {margin: 0 auto;}
+
+#section02 .right .top {height: 70%;background: var(--mc);}
+#section02 .right .top strong {position: relative;display: inline-block;font-size: 35px;font-weight: 700;margin-bottom: 20px;padding-right: 70px;}
+#section02 .right .top strong::after {content: '';position: absolute;bottom: 0;right: 0;display: block;width: 56px;height: 68px;background: url(../img/icon_ms2_foot.png) no-repeat center center/cover;}
+#section02 .right .top p {font-size: 17px;font-weight: 300;margin-bottom: 70px;}
+#section02 .right .top .link {position: relative;display: inline-block;font-size: 20px;font-weight: 500;margin-bottom: 70px;padding-right: 90px;}
+#section02 .right .top .link::after {content: '';position: absolute;bottom: 0;right: 0;display: block;width: 54px;height: 20px;background: url(../img/icon_ms2_arr.png) no-repeat center center/cover;}
+
+#section02 .right .bottom {height: 30%;background: url(../img/img_ms2-2.png) no-repeat center center/cover;}
+#section02 .right .bottom .link {display: block;width: 100%;height: 100%;}
+
+#section02 .right .txt_box {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 50%;}
+/*  top: 50%;left: 50%;transform: translate(-50%, -50%) > 정중앙 */
+#section02 .right .txt_box h3 {position: relative;display: inline-block;font-size: 35px;font-weight: 300;margin-bottom: 30px;}
+#section02 .right .txt_box h3 strong {font-weight: 700;}
+
+#section02 .right .txt_box h3::before, #section02 .right .txt_box h3::after {content: '';position: absolute;display: block;}
+#section02 .right .txt_box h3::before {top: -30px;left: -70px;width: 49px;height: 44px;background: url(../img/icon_ms2_heart1.png) no-repeat center center/cover;}
+#section02 .right .txt_box h3::after {top: 25px;right: -60px;width: 33px;height: 34px;background: url(../img/icon_ms2_heart2.png) no-repeat center center/cover;}
+/* alt 누르고 다른 곳 클릭하면 같이 잡힘 */
+
+
+/* section03 ---------------------------------------------- */
+#section03 {display: flex;justify-content: center;align-items: center;text-align: center;height: 100vh;background: url(../img/img_ms3.jpg)no-repeat center center/cover;}
+
+/* 박스를 페이지 중앙으로 오게 하는 방법
+1. 부모 flex , display: flex;justify-content: center;align-items: center; 주면 가로세로 중앙정렬 
+2. 부모 flex > 자기 콘텐츠 크기만큼만 쪼그라드는데 그 상태에서 자식에게 margin: auto를 주면 가로세로 중앙정렬 */
+#section03 .txt_box {color:  var(--lc);}
+#section03 .txt_box h2 {position: relative;font-size: 28px;font-weight: 700;}
+#section03 .txt_box h2::after {content: '';display: block;width: 50px;height: 3px;margin: 25px auto;background:  rgba(255,255,255,0.5);}
+#section03 .txt_box p {font-weight: 300;}
+
+#section03 .txt_box figure {margin-bottom: 30px;}
+#section03 .txt_box .button {border: 1px solid var(--lc);margin: 0 auto;}
+#section03 .txt_box .button:hover {background: rgba(255,255,255,0.2);}
+/* alt누르고 방향키 위 아래로 움직이면 줄 이동 ------------------------------------------- */
+
+
+/* section04 ---------------------------------------------- */
+#section04 {display: flex;flex-wrap: wrap;border-bottom: 1px solid #ddd;}
+/* flex-wrap > 가로로 넘치는 애들이 밑으로 떨어짐- 기본 flex는 no-wrap */
+#section04>* {width: 50%;}
+/* > 표시는 자식의 자식 말고 직 자식을 잡을 때 사용 !! ----------------------------- */
+
+#section04 .des {display: flex;justify-content: center;align-items: center;}
+#section04 .des .txt_box {width: 70%;}
+#section04 .des .txt_box h3 {position: relative;font-size: 35px;font-weight: 700;margin-bottom: 20px;}
+#section04 .des .txt_box h3::before {content: '';display: block;width: 65px;height: 3px;margin-bottom: 40px;background: var(--fc);}
+#section04 .des .txt_box p {font-weight: 300;letter-spacing: -0.05em;margin-bottom: 60px;}
+/* letter-spacing: 자간 줄이기 */
+#section04 .des .txt_box .button {border: 1px solid var(--fc);text-align: center;}
+#section04 .des .txt_box .button:hover {background: #eee;}
+
+#section04 figure img {width: 100%;}
+
+/* section05 ------------------------------------ */
+#section05 {padding: 150px 0;}
+#section05 .container {width: 1300px;margin: 0 auto;}
+
+#section05 ul {display: flex;}
+/* justify-content:
+space-between > 처음과 끝 컨텐츠가 각 끝에 붙는 것(디자인할 때 정렬 느낌)
+space-around > 패딩 좌우 10픽셀씩 주는 느낌
+space-evenly > 모든 여백을 같게 -
+space >> 여백조절 */
+#section05 ul li {position: relative;flex: 1;text-align: center;}
+#section05 ul li~li::before {content: '';position: absolute;top: 50%;left: 0;transform:translateY(-50%);display: block;width: 1px;height: 297px;background: url(../img/bd_ms5.png);}
+/* li~li 첫번째 li를 제외한 li */
+
+#section05 ul li figure {background: #F8F8F8;width: 200px;line-height: 200px;border-radius: 50%;margin: 0 auto;margin-bottom: 20px;}
+#section05 ul li h3 {font-size: 18px;font-weight: 300;margin-bottom: 40px;}
+#section05 ul li .button {margin: 0 auto;border: 1px solid var(--fc);text-align: center;}
+#section05 ul li .button:hover {background: #eee;}
+
+/* #section06 --------------------------------- */
+#section06 {padding: 72px 0;}
+#section06 .container {display: flex;justify-content: space-between;width: 1300px;margin: 0 auto;}
+#section06 dl>dt>a {display: block;font-size: 19px;font-weight: 500;margin-bottom: 20px;}
+#section06 dl>dd>a {display: block;font-size: 15px;font-weight: 300;line-height: 1.7em;}
+
+/* footer ------------------------------------ */
+#footer {background: #6d6461;padding: 61px 0;color: rgba(255,255,255,0.6);}
+#footer .container {width: 1500px;margin: 0 auto;}
+
+#footer .top {display: flex;justify-content: space-between;align-items: center;margin-bottom: 70px;}
+#footer .top .footer_logo {height: 50px;}
+#footer .top .footer_logo img {height: 100%;}
+
+#footer .top .footer_link {display: flex;}
+#footer .top .footer_link li~li {margin-left: 30px;}
+#footer .top .footer_link li a {font-size: 14px;font-weight: 300;background: url(../img/icon_footer_arr.png) no-repeat right center;padding-right: 20px;color: #ffffff;}
+
+#footer .bottom ul {width: 60%;font-size: 0;margin-left: -20px;margin-bottom: 70px;}
+/* 부모 요소에 font-size : 0 적용하면 인라인블럭 여백 사라짐 */
+#footer .bottom ul>li {display: inline-block;font-size: 15px;font-weight: 100;margin-left: 20px;line-height: 2;}
+#footer .bottom ul>li>span {position: relative;padding-right: 10px;margin-right: 10px;}
+#footer .bottom ul>li>span::before {content: '';position: absolute;top: 55%;right: 0;transform:translate(50%, -50%);display: block;width: 2px;height: 1em;background: rgba(255,255,255,0.4);}
+
+#footer .bottom .copyright {font-size: 13px;font-weight: 400;margin-bottom: 50px;}
+
